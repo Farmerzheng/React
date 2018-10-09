@@ -80,6 +80,75 @@ ReactDOM.render(
 
 <img src='media/2.png'>
 
+React 目录结构
+
+**package.json**
+
+
+
+<img src='media/3.png'>
+
+这个文件是管理下载的依赖包,在项目中经常用到的是"react"库，“react-dom”（将jsx语法渲染到dom中）
+
+在项目中最重要的命令是“start”启动项目，"bulid"的作用就是将项目打包。
+
+
+
+**node_modules：**
+
+这里面包含了react项目中会用到的一些组件，install的时候下载下来的
+
+
+
+**public文件夹**
+
+   1).favicon.ico
+
+​       是浏览器tab上图标，也是这个项目的一个标志，也可以说是代表一个公司的标志。可以替换。
+
+   2).index.html
+
+​       项目的入口文件，引用了第三方类库啊，还可以引入cdn
+
+​      <div id="root"></div> 是项目的总容器，所有的内容存储在这个容器中。这个容器有且只能有一个。
+
+ **src：**
+
+1).index.js
+
+​    <img src='media/4.png'>
+
+src 里面存放的是这个项目的核心内容，也就是我们的主要工作区域。
+
+其中，index.js文件是和index.html进行关联的文件。index.js的内容结构：
+
+```react
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+```
+
+ReactDOM.render(）的作用是将<App/>的内容渲染到根“root”中去。
+
+document.getElementById('root')中的"root"便是index.html中的"root"了，
+
+<App />便是引用页面内容了。
+
+在这里，<App />也可以写一些内容(结构,样式,逻辑)是整个项目的根组件，比如:
+
+ReactDOM.render(<p >Hello World</p>, document.getElementById('root'));
+
+运行结果（前提是本地服务器启动，打开localhost:3000）如下：
+
+<img src='media/5.png'>
+
+
+
 
 
 # JSX 简介
@@ -145,10 +214,6 @@ const element = <img src={user.avatarUrl} />;   //注意空标签以 /> 结尾�
 
  # 元素渲染
 
-
-
-## 元素渲染
-
 在 `./public/index.html` 中有一个 id 为 root 的 div。我们将这个 div 作为 react 渲染的容器。
 
 回看 hello world 程序，通过 ReactDOM.render() 方法很轻松的把内容渲染到了目标容器上：
@@ -169,4 +234,53 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+
+
+# 组件
+
+React 给我们提供了组件，可以更好的管理我们的代码。
+
+React 建议组件名的首字母大写
+
+先看下面代码，下面代码会输出 ”Hello Sara"
+
+```react
+function Welcome(props){
+  return <h1>Hello, {props.name}</h1>;
+}
+
+//自定义标签,调用了 Welcome 函数，并且将所有的属性(这里只有name)打包为一个对象传给 Welcome 函数
+const element = <Welcome name="Sara" />;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+组件帮助我们做一些重复的工作，比如这样：
+
+```react
+function Welcome(props){
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App(){
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+
+我们可以通过传递参数得到同一个组件构建的不同模块。
 
