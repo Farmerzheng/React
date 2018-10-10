@@ -1,10 +1,53 @@
 # React 简介
 
+​     <img src='media/react-logo.png'>
+
+## 是什么？       
+
+React 是一个用于构建用户界面的渐进式 JavaScript 库
+
+- 本身只处理 UI
+- 不关心路由
+- 不处理 ajax
+
 ​       React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。
 
-​       由于 React的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。所以，越来越多的人开始关注和使用，认为它可能是将来 Web 开发的主流工具。
+​       由于 React的设计思想极其独特（组件化），属于革命性创新，性能出众，代码逻辑却非常简单。所以，越来越多的人开始关注和使用，认为它可能是将来 Web 开发的主流工具。
 
 ​      这个项目本身也越滚越大，从最早的UI引擎变成了一整套前后端通吃的 Web App 解决方案。衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App。如果能够实现，整个互联网行业都会被颠覆，因为同一组人只需要写一次 UI ，就能同时运行在浏览器和手机。
+
+## React 特点
+
+- 组件化
+- 高效
+  - 虚拟 DOM
+  - Vue 2 也是虚拟 DOM
+  - 虚拟 DOM 更高效
+- 灵活
+  - 渐进式，本身只处理 UI ，可以和你的其它技术栈组合到一起来使用
+- 声明（配置）式设计
+  - `data` 响应式数据
+  - `mathods` 处理函数
+  - 这样做的好处就是按照我们约定好的方式来开发，所有人写出来的代码就像一个人写的
+  - `state`
+  - 方法就是类成员
+  - 也有特定的组件生命钩子
+- JSX
+  - 一种预编译 JavaScript 语言，允许让你的 JavaScript 和 HTML 混搭
+  - 模板中就是 JavaScript 逻辑
+- 单向数据流
+  - 组件传值
+  - 所有数据都是单向的，组件传递的数据都是单向
+  - Vue 也是单向数据流
+  - 没有双向数据绑定
+
+# React、Vue、angular 对比
+
+看看github星数吧
+
+<img src='media/react-vue-angular.png'>
+
+
 
 # 第一个实例
 
@@ -146,6 +189,40 @@ ReactDOM.render(<p >Hello World</p>, document.getElementById('root'));
 运行结果（前提是本地服务器启动，打开localhost:3000）如下：
 
 <img src='media/5.png'>
+
+ 2).App.js
+
+ <img src='media/6.png'>
+
+App类是继承react提供的component，
+
+export default App;是为了将App公开，index.js才能够引用。
+
+App.js继承了component的话，必须使用render进行渲染。
+
+return的内容是类似于html结构的内容，就是jsx，
+
+jsx语法是react的主要语法。
+
+内部的div的className是为了区分html语法的一个类名，
+
+这个是div的样式引用。在这个文件中，只能用一个div容器，如果在div的同级目录添加别的内容，便会报错。
+
+<img src='media/7.png'>
+
+
+
+className="App"，是引用到App.css的样式。
+
+<img src='media/8.png'>
+
+
+
+注意，页面内容样式是就近原则，
+
+首先用App.css的样式，App.css是组件的样式，index.css是全局的样式。
+
+
 
 
 
