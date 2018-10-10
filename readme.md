@@ -41,11 +41,90 @@ React 是一个用于构建用户界面的渐进式 JavaScript 库
   - Vue 也是单向数据流
   - 没有双向数据绑定
 
-# React、Vue、angular 对比
+## React 发展历史
+
+- Facebook 内部用来开发 Instagram
+- 2013 年开源了 React
+- 随后发布了 React Native
+- React 开源协议
+  - [知乎专栏 -React 的许可协议到底发生了什么问题？](https://zhuanlan.zhihu.com/p/28618630)
+  - [知乎 - 如何看待 Facebook 计划将 React 改为 MIT 许可证？](https://www.zhihu.com/question/65728078)
+  - [阮一峰 - 开源许可证教程](http://www.ruanyifeng.com/blog/2017/10/open-source-license-tutorial.html)
+  - [阮一峰 - 如何选择开源许可证](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
+  - React  最后架不住社区的压力，最后还是修改了许可协议条款。我分享，我骄傲。
+
+
+
+- React 版本
+
+  ​    <img src='media/react-release.png'>
+
+
+
+  - 2013 年 7 月 3 日 `v0.3.0`
+  - 2016 年 3 月 30 日 `v0.14.8`
+  - 2016 年 4 月 9 日 `v15.0.0`
+  - 2017 年 9 月 27 日 `v16.0.0`
+  - 截止到目前：2018 年 10 月 10日 [v16.5.2](https://github.com/facebook/react/releases/tag/v16.5.2)
+
+# React、Vue对比
 
 看看github星数吧
 
 <img src='media/react-vue-angular.png'>
+
+
+
+#### 技术层面
+
+- Vue 生产力更高（更少的代码实现更强劲的功能）
+- React 技术占比比较重
+- 两个框架的效率都采用了虚拟 DOM
+  - 性能都差不多
+- 组件化
+  - Vue 支持
+  - React 支持
+- 数据绑定
+  - 都支持数据驱动视图
+  - Vue       支持表单控件双向数据绑定
+  - React    不支持表单控件双向数据绑定
+- 它们的核心库都很小，都是渐进式 JavaScript 库
+- React 采用 JSX 语法来编写组件
+- Vue 采用单文件组件
+  - `template`
+  - `script`
+  - `style`
+
+#### 开发团队
+
+- React 由 Facebook 前端维护开发
+
+- Vue
+
+  - 早期只有尤雨溪一个人
+
+    <img src='media/尤雨溪.jpg'>
+
+  - 由于后来使用者越来越多，后来离职专职开发维护
+
+    <img src='media/vue-zanzhu.png'>
+
+  - 目前也有一个小团队在开发维护
+
+#### 社区
+
+- React 社区比 Vue 更强大
+- Vue 社区也很强大
+
+#### Native APP 开发
+
+- React Native
+  - 可以原生应用
+  - React 结束之后会学习
+- Weex
+  - 阿里巴巴内部搞出来的一个东西，基于 Vue
+
+### 相关资源链接
 
 
 
