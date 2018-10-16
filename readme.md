@@ -73,9 +73,7 @@ React 是一个用于构建用户界面的渐进式 JavaScript 库
 
 <img src='media/react-vue-angular.png'>
 
-
-
-#### 技术层面
+## 技术层面
 
 - Vue 生产力更高（更少的代码实现更强劲的功能）
 - React 技术占比比较重
@@ -95,7 +93,7 @@ React 是一个用于构建用户界面的渐进式 JavaScript 库
   - `script`
   - `style`
 
-#### 开发团队
+## 开发团队
 
 - React 由 Facebook 前端维护开发
 
@@ -111,12 +109,12 @@ React 是一个用于构建用户界面的渐进式 JavaScript 库
 
   - 目前也有一个小团队在开发维护
 
-#### 社区
+## 社区
 
 - React 社区比 Vue 更强大
 - Vue 社区也很强大
 
-#### Native APP 开发
+## Native APP 开发
 
 - React Native
   - 可以原生应用
@@ -124,11 +122,249 @@ React 是一个用于构建用户界面的渐进式 JavaScript 库
 - Weex
   - 阿里巴巴内部搞出来的一个东西，基于 Vue
 
-### 相关资源链接
+## 相关资源链接
+
+- [React 官网](https://reactjs.org/)
+- [官方教程](https://reactjs.org/tutorial/tutorial.html)
+  - 连字游戏
+- [官方文档](https://reactjs.org/docs/)
+  - 基础教程
+  - 高级教程
+  - API 参考文档
+- [React - GitHub](https://github.com/facebook/react)
+- [阮一峰 - React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
+- [阮一峰 - React 入门实例教程]（http://www.ruanyifeng.com/blog/2015/03/react.html
+- [awesome react](https://github.com/enaqx/awesome-react)
+- [awesome-react-components](https://github.com/brillout/awesome-react-components)
+
+# React 核心概念
+
+## 组件化
+
+![react-component](https://cn.vuejs.org/images/components.png)
+
+## 虚拟 DOM
+
+> 虚拟 DOM 对于使用者来讲完全不用关心
+
+- [知乎 - 如何理解虚拟DOM？](https://www.zhihu.com/question/29504639)
+- [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
+- [理解 Virtual DOM](https://github.com/y8n/blog/issues/5)
+- [深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
+- [全面理解虚拟DOM，实现虚拟DOM](https://foio.github.io/virtual-dom/)
+- [50行代码实现Virtual DOM](http://www.jianshu.com/p/cbb7d7094fb9)
+- [网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？](https://www.zhihu.com/question/31809713)
+
+## JSX
+
+虚拟 DOM 写起来麻烦，所以提供了 JSX 的方式
 
 
 
-# 第一个实例
+
+
+# 安装react
+
+## 开发环境安装
+
+安装项目依赖的包
+
+```shell
+mkdir demo
+cd demo
+npm init
+npm install --save react react-dom @babel/standalone
+echo >index.html  （echo后面不要忘了空格，代表向index.html里面输入一个空格）
+```
+
+<img src='media/npm-react.png'>
+
+
+
+对安装的react、react-dom、@babel/standalone 包进行解释
+
+```text
+react ?
+
+    React 的核心库
+
+react-dom?
+
+    提供与 DOM 相关的功能
+
+@babel/standalone?
+
+    Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。
+
+    Babel 内嵌了对 JSX 的支持。
+
+```
+
+
+
+index.html 里面的内容如下
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>demo - Hello World</title>
+  <script src="node_modules/@babel/standalone/babel.js"></script>
+  <script src="node_modules/react/umd/react.development.js"></script>
+  <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    ReactDOM.render(
+      <h1>Hello, react!</h1>,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+
+</html>
+```
+
+
+
+运行index.html，得到如下页面
+
+<img src='media/react-demo.png'>
+
+## 脚手架方式 
+
+  (创建单页面应用程序)`create-react-app`
+
+
+
+1. 全局安装 create-react-app ：
+
+   > npm install -g create-react-app
+
+2. 创建 myDemo 项目 : 
+
+   > create-react-app myDemo
+
+3. 切换到myDemo目录下
+
+   > cd myDemo
+
+4. 启动项目
+
+   > npm start
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/1.png">
+
+   
+
+5.浏览器会自动打开运行好的项目
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/2.png">
+
+React 目录结构
+
+**package.json**
+
+
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/3.png">
+
+这个文件是管理下载的依赖包,在项目中经常用到的是"react"库，“react-dom”（将jsx语法渲染到dom中）
+
+在项目中最重要的命令是“start”启动项目，"bulid"的作用就是将项目打包。
+
+
+
+**node_modules：**
+
+这里面包含了react项目中会用到的一些组件，install的时候下载下来的
+
+
+
+**public文件夹**
+
+   1).favicon.ico
+
+​       是浏览器tab上图标，也是这个项目的一个标志，也可以说是代表一个公司的标志。可以替换。
+
+   2).index.html
+
+​       项目的入口文件，引用了第三方类库啊，还可以引入cdn
+
+​      <div id="root"></div> 是项目的总容器，所有的内容存储在这个容器中。这个容器有且只能有一个。
+
+ **src：**
+
+1).index.js
+
+​    <img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/4.png">
+
+src 里面存放的是这个项目的核心内容，也就是我们的主要工作区域。
+
+其中，index.js文件是和index.html进行关联的文件。index.js的内容结构：
+
+```react
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+```
+
+ReactDOM.render(）的作用是将<App/>的内容渲染到根“root”中去。
+
+document.getElementById('root')中的"root"便是index.html中的"root"了，
+
+<App />便是引用页面内容了。
+
+在这里，<App />也可以写一些内容(结构,样式,逻辑)是整个项目的根组件，比如:
+
+ReactDOM.render(<p >Hello World</p>, document.getElementById('root'));
+
+运行结果（前提是本地服务器启动，打开localhost:3000）如下：
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/5.png">
+
+ 2).App.js
+
+ <img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/6.png">
+
+App类是继承react提供的component，
+
+export default App;是为了将App公开，index.js才能够引用。
+
+App.js继承了component的话，必须使用render进行渲染。
+
+return的内容是类似于html结构的内容，就是jsx，
+
+jsx语法是react的主要语法。
+
+内部的div的className是为了区分html语法的一个类名，
+
+这个是div的样式引用。在这个文件中，只能用一个div容器，如果在div的同级目录添加别的内容，便会报错。
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/7.png">
+
+
+
+className="App"，是引用到App.css的样式。
+
+<img src="C:/Users/%E7%8E%8B%E4%BA%89/Desktop/%E6%95%99%E5%AD%A6/React/media/8.png">
+
+
+
+注意，页面内容样式是就近原则，
+
+首先用App.css的样式，App.css是组件的样式，index.css是全局的样式。
+
+## CDN方式
 
 ```react
 <!DOCTYPE html>
@@ -162,165 +398,97 @@ ReactDOM.render(
 </html>
 ```
 
-**实例解析：**
 
-实例中我们引入了三个库： react.min.js 、react-dom.min.js 和 babel.min.js：
 
-- **react.min.js** - React 的核心库
-- **react-dom.min.js** - 提供与 DOM 相关的功能
-- **babel.min.js** - Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码
 
+# JSX 语法
 
+ JSX 是 react 中允许 js 和 html 混写的语法格式，需要依赖 babel 编译。
 
+官网最权威，最准确！官网地址：  <a href="https://reactjs.org/docs/introducing-jsx.html">官网JSX</a>
 
+## 环境配置
 
-
-
-# React 安装
-
-1. 全局安装 create-react-app ：
-
-   >  npm install -g create-react-app
-
-2. 创建 myDemo 项目 : 
-
-   > create-react-app myDemo
-
-3. 切换到myDemo目录下
-
-   > cd myDemo
-
-4. 启动项目
-
-   > npm start
-
-<img src='media/1.png'>
-
-   
-
-5.浏览器会自动打开运行好的项目
-
-<img src='media/2.png'>
-
-React 目录结构
-
-**package.json**
-
-
-
-<img src='media/3.png'>
-
-这个文件是管理下载的依赖包,在项目中经常用到的是"react"库，“react-dom”（将jsx语法渲染到dom中）
-
-在项目中最重要的命令是“start”启动项目，"bulid"的作用就是将项目打包。
-
-
-
-**node_modules：**
-
-这里面包含了react项目中会用到的一些组件，install的时候下载下来的
-
-
-
-**public文件夹**
-
-   1).favicon.ico
-
-​       是浏览器tab上图标，也是这个项目的一个标志，也可以说是代表一个公司的标志。可以替换。
-
-   2).index.html
-
-​       项目的入口文件，引用了第三方类库啊，还可以引入cdn
-
-​      <div id="root"></div> 是项目的总容器，所有的内容存储在这个容器中。这个容器有且只能有一个。
-
- **src：**
-
-1).index.js
-
-​    <img src='media/4.png'>
-
-src 里面存放的是这个项目的核心内容，也就是我们的主要工作区域。
-
-其中，index.js文件是和index.html进行关联的文件。index.js的内容结构：
-
-```react
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
-```
-
-ReactDOM.render(）的作用是将<App/>的内容渲染到根“root”中去。
-
-document.getElementById('root')中的"root"便是index.html中的"root"了，
-
-<App />便是引用页面内容了。
-
-在这里，<App />也可以写一些内容(结构,样式,逻辑)是整个项目的根组件，比如:
-
-ReactDOM.render(<p >Hello World</p>, document.getElementById('root'));
-
-运行结果（前提是本地服务器启动，打开localhost:3000）如下：
-
-<img src='media/5.png'>
-
- 2).App.js
-
- <img src='media/6.png'>
-
-App类是继承react提供的component，
-
-export default App;是为了将App公开，index.js才能够引用。
-
-App.js继承了component的话，必须使用render进行渲染。
-
-return的内容是类似于html结构的内容，就是jsx，
-
-jsx语法是react的主要语法。
-
-内部的div的className是为了区分html语法的一个类名，
-
-这个是div的样式引用。在这个文件中，只能用一个div容器，如果在div的同级目录添加别的内容，便会报错。
-
-<img src='media/7.png'>
-
-
-
-className="App"，是引用到App.css的样式。
-
-<img src='media/8.png'>
-
-
-
-注意，页面内容样式是就近原则，
-
-首先用App.css的样式，App.css是组件的样式，index.css是全局的样式。
-
-
-
-
-
-
-
-# JSX 简介
-
-JSX 是 react 中允许 js 和 html 混写的语法格式，需要依赖 babel 编译。
+- 非模块化环境
+  - `babel-standalone`
+  - 执行时编译，速度比较慢
+  - 只适用于开发测试环境
+- 模块化环境
+  - 结合 webpack 配置 babel 响应的工具完成预编译
+  - 浏览器执行的是预编译结果
+- Babel REPL 赋值查看编译结果
+  - 使用在线测试
 
 这里我就只研究它的语法：
 
-```
+```react
 const element = <h1>Hello, world!</h1>;
 ```
 
-可以通过花括号在其中插入表达式：
+看不懂？
 
-```
-function formatName(user){
+没关系
+
+jsx 语法浏览器读不懂啊，jsx是需要babel来进行编译成js 浏览器才能识别那
+
+让我们打开 <a href='https://babeljs.io/repl'>babel</a> 试一下吧！
+
+<img src='media/babel-jsx.png'/>
+
+
+
+可以看到，编译后的代码，是 js 写的东东，这样浏览器才能晓得
+
+## 基本语法规则
+
+- 必须只能有一个根节点
+
+- 多标签 或者 换行 推荐加（）
+
+  <img src='media/jsx-().png'>
+
+- 遇到 HTML 标签 （以 `<` 开头） 就用 HTML 规则解析 
+
+  - 单标签不能省略结束标签。
+
+- 遇到代码块（以 `{` 开头），就用 JavaScript 规则解析
+
+- JSX 允许直接在模板中插入一个 JavaScript 变量
+
+  - 如果这个变量是一个数组，则会展开这个数组的所有成员添加到模板中
+
+- 单标签必须加结束 `/>`
+
+  ```react
+      以下是不正确的
+      
+       ReactDOM.render(
+          <input type='text'>,
+          document.getElementById('root') 
+       )
+       
+      以下是正确的
+      
+       ReactDOM.render(
+          <input type='text' />,
+          document.getElementById('root') 
+       )
+      
+  ```
+
+
+
+
+## JSX 中嵌入js表达式
+
+
+
+**js表达式写在 { } 中，注意不是 {{ }}**
+
+
+
+```react
+function formatName(user) {
   return user.firstName + ' ' + user.lastName;
 }
 
@@ -341,102 +509,374 @@ ReactDOM.render(
 );
 ```
 
-可以将 HTML 语句写为多行以增加可读性，
+```react
+const user = {
+  name: '张三',
+  age: 18,
+  gender: 0
+}
 
-用小括号括起来可以防止自动插入分号导致的错误。
+const element = (
+  <div>
+    <p>{1+1}</p>
+    <p>{'zhang'+'san'}</p>    
+    <p>姓名：{user.name}</p>
+    <p>年龄：{user.age}</p>
+    <p>性别：{user.gender === 0 ? '男' : '女'}</p>
+  </div>
+)
+```
 
-JSX 也是个表达式，所以可以用在 for 和 if 中：
+## 在 JSX 中使用注释
+
+在 JavaScript 中的注释还是以前的方式：
+
+```javascript
+// 单行注释
+
+/*
+ * 多行注释
+ */
+```
+
+在 jsx 的标签中写注释需要注意：
+
+写法一（不推荐）：
+
+```jsx
+{
+  // 注释
+  // ...
+}
+```
+
+写法二（推荐，把多行写到单行中）：
 
 ```
-  function getGreeting(user){
-    if (user){
-      return <h1>Hello, {formatName(user)}!</h1>;
-    }
-    return <h1>Hello, Stranger.</h1>;
+{/* 单行注释 */}
+```
+
+写法三（多行）：
+
+```jsx
+{
+  /*
+   * 多行注释
+   */
+}
+```
+
+<img src='media/jsx-zhushi.png'>
+
+##  在JS中嵌入JSX
+
+```react
+function getGreeting (user) {
+  if (user) {
+    return <h1>Hello, {user.name}</h1>
   }
+  return <h1>Hello, Stranger.</h1>
+}
+
+const user = {
+  name: 'Jack'
+}
+
+const element = getGreeting(user)
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+)
 ```
 
-我们可以正常使用引号给 HTML 标签添加属性，也可以使用 js 表达式
+## JSX 中的节点属性
 
-```
+​    JSX  的本质是 javascript
+
+​    class 、for 在 javascript 中是一个关键字
+
+​    JSX 中的 class  要使用  className , for 要使用 htmlFor
+
+<img src='media/jsx-shuxing2.png'>
+
+<img src='media/jsx-shuxing.png'>
+
+
+
+<img src='media/htmlFor.png'>
+
+
+
+`tabindex` 使用 `tabIndex`
+
+```jsx
 const element = <div tabIndex="0"></div>;
-
-const element = <img src={user.avatarUrl} />;   //注意空标签以 /> 结尾，像 XML 一样
 ```
 
-注意 html 属性名请使用小驼峰(camelCase)写法
+
+
+在属性中使用表达式：
+
+```jsx
+const element = <img src={user.avatarUrl}></img>;
+
+注意不能像下面这样写：
+
+const element = <img src='{user.avatarUrl}'></img>;
+```
 
 
 
- # 元素渲染
+## 声明子节点
 
-在 `./public/index.html` 中有一个 id 为 root 的 div。我们将这个 div 作为 react 渲染的容器。
+- 必须有且只有一个根节点
 
-回看 hello world 程序，通过 ReactDOM.render() 方法很轻松的把内容渲染到了目标容器上：
+如果标签是空的，可以使用 `/>` 立即关闭它。
+
+```jsx
+const element = <img src={user.avatarUrl} />;
+```
+
+JSX 子节点可以包含子节点（最好加上小括号）：
+
+```jsx
+const element = (
+  <div>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);
+```
+
+## JSX原理
+
+Babel 会把 JSX 编译为 `React.createElement()` 函数。
+
+
+
+下面两种方式是等价的：
+
+```jsx
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+
+```jsx
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+## JSX 语法高亮
+
+安装插件！
+
+## 列表渲染
+
+> https://reactjs.org/docs/lists-and-keys.html
+
+注意：在列表项要有不同的key值
+
+```react
+   const fruitArr = [
+        <li key='1'> 苹果 </li>,
+        <li key='2'> 香蕉 </li>,
+        <li key='3'> 橘子 </li>
+   ]; 
+
+    const element =( 
+        <div>{fruitArr}</div>
+    ); 
+
+   ReactDOM.render(
+       element,
+       document.getElementById("root")
+   );
 
 ```
+
+```react
+const fruitArr = [ '苹果', '香蕉', '橘子' ];
+
+const fruitList = fruitArr.map((item,index)=>{
+    
+    return  <li key={index}>{item}</li> 
+    
+}) ;
+
+const element =(        
+        <div>{fruitList}</div>        
+  ); 
+
+ReactDOM.render(element, document.getElementById("root"));
+```
+
+## 条件渲染
+
+> https://reactjs.org/docs/conditional-rendering.html
+
+### 示例1
+
+```react
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
+}
+
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
+}
+
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+
 ReactDOM.render(
-  <h1> hello world! </h1>,
+  // Try changing to isLoggedIn={true}:
+  <Greeting isLoggedIn={false} />,
   document.getElementById('root')
 );
 ```
 
-当然也可以这样写：
+## 事件处理
 
+参考文档：https://reactjs.org/docs/handling-events.html
+
+```react
+       function clickHandler(){
+           alert('哈哈哈')
+       } 
+
+       const element =(
+         {/*
+           * 1、事件名称采用驼峰命名法
+           * 2、事件属性值必须为函数
+           */}
+        <button onClick={clickHandler}>点我</button>
+       ); 
+
+       ReactDOM.render(element, document.getElementById("root"));
 ```
-let content = <h1> hello world! </h1>;
-ReactDOM.render(
-  content,
-  document.getElementById('root')
-);
-```
+
+
 
 
 
 # 组件
 
-React 给我们提供了组件，可以更好的管理我们的代码。
+参考文档：https://reactjs.org/docs/components-and-props.html
 
-React 建议组件名的首字母大写
 
-先看下面代码，下面代码会输出 ”Hello Sara"
+
+组件的名字首字母必须大写
+
+组件本质上是构造函数，也就是类
 
 ```react
-function Welcome(props){
-  return <h1>Hello, {props.name}</h1>;
+function AppHeader(){
+    return <h1>头部</h1>
 }
-
-//自定义标签,调用了 Welcome 函数，并且将所有的属性(这里只有name)打包为一个对象传给 Welcome 函数
-const element = <Welcome name="Sara" />;
-
+const element = (
+  <div>
+    <AppHeader/>  
+  </div>
+)
 ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+   element,
+   document.getElementById("root") 
+)
 ```
 
-组件帮助我们做一些重复的工作，比如这样：
+组件传值
 
 ```react
-function Welcome(props){
-  return <h1>Hello, {props.name}</h1>;
+function AppHeader(props){
+    return <h1>{props.name}</h1>
 }
+const element = (
+  <div>
+    <AppHeader name='头部'/>  
+  </div>
+)
+ReactDOM.render(
+   element,
+   document.getElementById("root") 
+)
+```
 
-function App(){
-  return (
+
+
+ES6类的形式创建组件
+
+
+
+```react
+class AppHeader extends React.Component {
+    render() {
+        return <h1>头部</h1>;
+    }
+}
+const element = (
     <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
+        <AppHeader name="头部" />
     </div>
-  );
-}
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
 );
+ReactDOM.render(element, document.getElementById("root"));
 ```
 
-我们可以通过传递参数得到同一个组件构建的不同模块。
+
+
+ES6  有状态的组件
+
+
+
+```react
+class AppHeader extends React.Component {
+    constructor() {
+        
+        super();
+        
+        // state 为组件的状态属性，类似于vue中的data
+        this.state = {
+            name: "头部"
+        };
+
+        setTimeout(() => {
+            //下面写法错误
+            //this.this.state.avatar = '底部'
+
+            //下面写法正确
+            this.setState({
+                name: "底部"
+            });
+        }, 2000);
+    }
+
+    render() {
+        return <h1>{this.state.name}</h1>;
+    }
+}
+const element = (
+    <div>
+        <AppHeader name="头部" />
+    </div>
+);
+
+ReactDOM.render(element, document.getElementById("root"));
+```
+
+
+
+
+
+
 
