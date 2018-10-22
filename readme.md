@@ -691,7 +691,7 @@ const element = React.createElement(
    ]; 
 
     const element =( 
-        <div>{fruitArr}</div>
+        <ul>{fruitArr}</ul>
     ); 
 
    ReactDOM.render(
@@ -820,7 +820,10 @@ ES6类的形式创建组件
 
 
 ```react
+// react 组件类必须继承 React.Component 类
 class AppHeader extends React.Component {
+    
+    //在 react 组件类中，必须通过 render 函数返回组件模板
     render() {
         return <h1>头部</h1>;
     }
@@ -846,6 +849,7 @@ class AppHeader extends React.Component {
         super();
         
         // state 为组件的状态属性，类似于vue中的data
+        // 在 constructor 中设定 state
         this.state = {
             name: "头部"
         };
@@ -876,7 +880,137 @@ ReactDOM.render(element, document.getElementById("root"));
 
 
 
+组件事件绑定
+
+```react
+
+class AppHeader extends React.Component {
+    
+    constructor() {
+        super();
+        // state 为组件的状态属性，类似于vue中的data
+        // console.log(this);
+        this.state = {
+            avatar: "头部"
+        };
+    }
+
+    render() {
+        return (
+            //bind方法改变 handleClick 方法中 this 指针的指向
+            <h1 onClick={this.handleClick.bind(this)}>{this.state.avatar}</h1>
+        );
+    }
+    
+    //react事件处理方法名取名为  handleXXX
+    handleClick() {
+        //console.log(this); //AppHeader
+        this.setState({
+            avatar: "底部"
+        });
+    }
+}
+
+const element = (
+    <div>
+        <AppHeader />
+    </div>
+);
+
+ReactDOM.render(element, document.getElementById("root"));
+
+```
 
 
 
+# ToMvc
+
+
+
+## 项目结构搭建
+
+项目基本目录结构
+
+<img src = 'media/todomvc-01.png'>
+
+package.json
+
+```react
+{
+    "name": "demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/standalone": "^7.1.0",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
+    }
+}
+```
+
+index.html
+
+```react
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app"></div>
+    <script src='node_modules/@babel/standalone/babel.min.js'></script>
+    <script src='node_modules/react/umd/react.development.js'></script>
+    <script src='node_modules/react-dom/umd/react-dom.development.js'></script>
+    <script type='text/babel' src='components/app.jsx'></script>
+    <script type="text/babel" src='main.jsx'></script>
+</body>
+</html>
+```
+
+main.jsx
+
+```react
+//main.js 一般用来渲染根组件
+
+// Vue 对比
+// new Vue({
+//     el:'#app',
+//     template:'<App/>'，
+//     components:{
+//        App
+//     }
+// })
+
+(function(ReactDOM,App) {
+    ReactDOM.render(<App />, document.getElementById("app"));
+})(ReactDOM,App);
+
+```
+
+app.jsx
+
+```react
+(function(React) {
+    class App extends React.Component {
+        render() {
+            return (
+                <div>
+                    <h1>app component</h1>
+                </div>
+            );
+        }
+    }
+    window.App = App;
+})(React);
+```
 
